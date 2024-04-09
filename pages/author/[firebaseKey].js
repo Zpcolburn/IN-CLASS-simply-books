@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
+// import React, { useState } from 'react';
+// import { useRouter } from 'next/router';
 
-export default function ViewAuthor() {
-  const router = useRouter();
-  const { firebaseKey } = router.query;
-  return console.warn({ firebaseKey });
-}
+// export default function ViewAuthor() {
+//   const [authorDetails, setAuthorDetails] = useState({});
+//   const router = useRouter();
+// }

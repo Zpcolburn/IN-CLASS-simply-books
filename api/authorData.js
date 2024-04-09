@@ -52,8 +52,18 @@ const deleteSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
 // FIXME: UPDATE AUTHOR
 const updateAuthor = () => {};
 
-// TODO: GET A SINGLE AUTHOR'S BOOKS
-// const getAuthorBooks = () => {};
+//  GET A SINGLE AUTHOR'S BOOKS
+const getAuthorBooks = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/books.json?orderBy="autor_id"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
 const favoriteAuthors = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors.json?orderBy="uid"&equalTo="${uid}"`, {
@@ -77,5 +87,5 @@ export {
   deleteSingleAuthor,
   updateAuthor,
   favoriteAuthors,
-  // getAuthorBooks,
+  getAuthorBooks,
 };
